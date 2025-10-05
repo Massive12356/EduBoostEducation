@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Settings, BarChart3, Users, Calendar, FileText, MessageCircle, ArrowRight } from 'lucide-react';
 import { Button } from '../../components/Button';
 import { ScrollAnimation } from '../../hooks/useScrollAnimation';
+import pic from '../../images/heroImage1.jpeg';
 
 const SchoolManagementSystem: React.FC = () => {
   return (
@@ -17,23 +18,30 @@ const SchoolManagementSystem: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        className="relative  flex h-screen items-center justify-center py-20 lg:py-32"
+        style={{
+          backgroundImage: `url(${pic})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/70 z-0"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
-              School Management{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">
-                System
-              </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+              School Management <span className="text-[#f503f5]">System</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Streamline your educational institution's operations with our comprehensive management
-              platform that simplifies administration and improves decision-making through
+            <p className="text-[1rem] md:text-xl text-white mb-8 max-w-3xl mx-auto leading-relaxed alanSas">
+              Streamline your educational institution's operations with our <br /> comprehensive
+              management platform that simplifies <br /> administration and improves decision-making
+              through <br />
               data-driven insights.
             </p>
           </motion.div>
@@ -45,13 +53,13 @@ const SchoolManagementSystem: React.FC = () => {
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
                 Solving Administrative Complexity
               </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                Schools often struggle with fragmented systems, manual processes, and poor
-                communication. Our integrated management system brings everything together in one
-                user-friendly platform, saving time and improving efficiency across all
+              <p className="text-xl text-black max-w-4xl mx-auto leading-relaxed alanSas">
+                Schools often struggle with fragmented systems, manual processes, and poor <br />
+                communication. Our integrated management system brings everything <br /> together in
+                one user-friendly platform, saving time and improving efficiency <br /> across all
                 administrative functions.
               </p>
             </div>
@@ -61,14 +69,20 @@ const SchoolManagementSystem: React.FC = () => {
                 {
                   stat: '60%',
                   label: 'time saved on administrative tasks',
+                  bg: 'bg-[#f2b705]',
+                  text: 'text-black',
                 },
                 {
                   stat: '45%',
                   label: 'improvement in parent-teacher communication',
+                  bg: 'bg-[#f0052f]',
+                  text: 'text-white',
                 },
                 {
                   stat: '80%',
                   label: 'reduction in paperwork and manual processes',
+                  bg: 'bg-[#049dd9]',
+                  text: 'text-black',
                 },
               ].map((item, index) => (
                 <motion.div
@@ -76,12 +90,11 @@ const SchoolManagementSystem: React.FC = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl"
+                  whileHover={{ scale: 0.98 }}
+                  className={`text-center p-6  rounded-sm ${item.bg} ${item.text} alanSas `}
                 >
-                  <div className="text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
-                    {item.stat}
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-300">{item.label}</p>
+                  <div className="text-4xl font-bold mb-2">{item.stat}</div>
+                  <p>{item.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -91,13 +104,13 @@ const SchoolManagementSystem: React.FC = () => {
 
       {/* System Features */}
       <ScrollAnimation>
-        <section className="py-20 bg-gray-50 dark:bg-gray-800">
+        <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
                 Complete Administrative Solution
               </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300">
+              <p className="text-xl text-black alanSas">
                 Everything you need to run a modern educational institution efficiently.
               </p>
             </div>
@@ -115,6 +128,8 @@ const SchoolManagementSystem: React.FC = () => {
                     'Academic Records',
                     'Attendance Tracking',
                   ],
+                  bg: 'bg-[#f2b705]',
+                  text: 'text-black',
                 },
                 {
                   icon: BarChart3,
@@ -127,6 +142,8 @@ const SchoolManagementSystem: React.FC = () => {
                     'Progress Reports',
                     'Grade Analytics',
                   ],
+                  bg: 'bg-[#f0052f]',
+                  text: 'text-white',
                 },
                 {
                   icon: MessageCircle,
@@ -139,6 +156,8 @@ const SchoolManagementSystem: React.FC = () => {
                     'Parent Notifications',
                     'Group Communications',
                   ],
+                  bg: 'bg-[#049dd9]',
+                  text: 'text-black',
                 },
                 {
                   icon: Calendar,
@@ -151,6 +170,8 @@ const SchoolManagementSystem: React.FC = () => {
                     'Exam Timetables',
                     'Activity Calendar',
                   ],
+                  bg: 'bg-[#049dd9]',
+                  text: 'text-black',
                 },
                 {
                   icon: FileText,
@@ -163,6 +184,8 @@ const SchoolManagementSystem: React.FC = () => {
                     'Document Sharing',
                     'Archive System',
                   ],
+                  bg: 'bg-[#f2b705]',
+                  text: 'text-black',
                 },
                 {
                   icon: Settings,
@@ -175,6 +198,8 @@ const SchoolManagementSystem: React.FC = () => {
                     'System Settings',
                     'Security Controls',
                   ],
+                  bg: 'bg-[#f0052f]',
+                  text: 'text-white',
                 },
               ].map((feature, index) => (
                 <motion.div
@@ -182,22 +207,18 @@ const SchoolManagementSystem: React.FC = () => {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg"
+                  whileHover={{ scale: 0.98 }}
+                  className={`rounded-sm p-6 shadow-lg ${feature.bg} alanSas ${feature.text}`}
                 >
-                  <div className="bg-primary-100 dark:bg-primary-900 p-3 rounded-xl w-fit mb-4">
+                  <div className="p-3 rounded-xl w-fit mb-4">
                     <feature.icon className="w-6 h-6 text-primary-600 dark:text-primary-400" />
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{feature.description}</p>
+                  <h3 className="text-xl font-semibold  mb-3">{feature.title}</h3>
+                  <p className=" mb-4">{feature.description}</p>
                   <div className="space-y-2">
                     {feature.features.map((item, featureIndex) => (
-                      <div
-                        key={featureIndex}
-                        className="flex items-center text-sm text-gray-500 dark:text-gray-400"
-                      >
-                        <div className="w-1.5 h-1.5 bg-secondary-500 rounded-full mr-2"></div>
+                      <div key={featureIndex} className="flex items-center text-sm">
+                        <div className="w-2 h-2 border-2 border-black rounded-full mr-2"></div>
                         {item}
                       </div>
                     ))}
@@ -225,13 +246,13 @@ const SchoolManagementSystem: React.FC = () => {
               </div>
 
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                <h2 className="text-3xl md:text-4xl alanSas font-bold text-black mb-6">
                   Data-Driven Decision Making
                 </h2>
-                <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                  Transform raw data into actionable insights with our comprehensive analytics
-                  dashboard. Track student performance, identify trends, and make informed decisions
-                  to improve educational outcomes.
+                <p className="text-xl text-black alanSas mb-8">
+                  Transform raw data into actionable insights with our <br /> comprehensive
+                  analytics dashboard. Track student <br /> performance, identify trends, and make
+                  informed <br /> decisions to improve educational outcomes.
                 </p>
 
                 <div className="space-y-6">
@@ -256,10 +277,8 @@ const SchoolManagementSystem: React.FC = () => {
                         'Personalized dashboards for different user roles and responsibilities',
                     },
                   ].map((insight, index) => (
-                    <div key={index} className="flex items-start">
-                      <div className="bg-secondary-100 dark:bg-secondary-900 p-1 rounded-full mr-4 mt-2">
-                        <div className="w-2 h-2 bg-secondary-600 rounded-full"></div>
-                      </div>
+                    <div key={index} className="flex items-start alanSas">
+                      <div className="border-4 border-black p-1 rounded-full mr-4 mt-2"></div>
                       <div>
                         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                           {insight.title}
@@ -277,14 +296,14 @@ const SchoolManagementSystem: React.FC = () => {
 
       {/* Security & Compliance */}
       <ScrollAnimation>
-        <section className="py-20 bg-gray-50 dark:bg-gray-800">
+        <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
                 Security & Compliance First
               </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300">
-                Your data security is our top priority. We maintain the highest standards of
+              <p className="text-xl text-black alanSas">
+                Your data security is our top priority. We maintain the <br /> highest standards of
                 protection and compliance.
               </p>
             </div>
@@ -294,31 +313,38 @@ const SchoolManagementSystem: React.FC = () => {
                 {
                   title: 'Data Encryption',
                   description: 'End-to-end encryption for all data transmission and storage',
+                  bg: 'bg-[#f2b705]',
+                  text: 'text-black',
                 },
                 {
                   title: 'Regular Backups',
                   description: 'Automated daily backups with quick disaster recovery options',
+                  bg: 'bg-[#f0052f]',
+                  text: 'text-white',
                 },
                 {
                   title: 'Access Controls',
                   description: 'Role-based permissions and multi-factor authentication',
+                  bg: 'bg-[#049dd9]',
+                  text: 'text-black',
                 },
                 {
                   title: 'Privacy Compliance',
                   description: 'Full compliance with FERPA, COPPA, and international privacy laws',
+                  bg: 'bg-[#f503f5]',
+                  text: 'text-black',
                 },
               ].map((feature, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 0.98 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg text-center"
+                  className={`rounded-sm p-6 shadow-lg text-center ${feature.bg} ${feature.text} alanSas`}
                 >
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">{feature.description}</p>
+                  <h3 className="text-lg font-semibold mb-3">{feature.title}</h3>
+                  <p className="text-sm">{feature.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -328,26 +354,30 @@ const SchoolManagementSystem: React.FC = () => {
 
       {/* CTA Section */}
       <ScrollAnimation>
-        <section className="py-20 bg-gradient-to-r from-blue-800 to-indigo-900 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <section className="py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center alanSas">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 ">
               Streamline Your School Administration
             </h2>
             <p className="text-xl mb-8 opacity-90">
-              Join hundreds of schools already benefiting from our comprehensive management system.
+              Join hundreds of schools already benefiting from our <br /> comprehensive management
+              system.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" icon={ArrowRight} iconPosition="right" aria-label="Request demo">
+              <motion.button
+                whileTap={{ scale: 0.98 }}
+                aria-label="Request demo"
+                className="bg-[#f503f5] flex gap-3 px-6 py-4 alanSas rounded-lg text-black font-semibold hover:bg-[#9e7701] hover:text-white"
+              >
                 Request Demo
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-zinc-900 dark:hover:text-white"
+              </motion.button>
+              <motion.button
+                whileTap={{ scale: 0.98 }}
+                className="bg-[#f2b705] flex gap-3 px-6 py-4 alanSas rounded-lg text-black font-semibold hover:bg-[#f503f5] hover:text-black"
                 aria-label="View pricing plans"
               >
                 View Pricing
-              </Button>
+              </motion.button>
             </div>
           </div>
         </section>

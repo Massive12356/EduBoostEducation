@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import pic1 from '../images/pexels-gustavo-fring-5621936.jpg';
-import pic2 from '../images/father-sons-making-robot.jpg';
+import pic1 from '../images/heroImage.jpeg';
+import pic2 from '../images/heroImage1.jpeg';
 import { ArrowRight } from 'lucide-react';
-import { Button } from '../components/Button';
 
 const slides = [
   {
-    img: pic1,
+    img: pic2,
     title: 'Transforming Ghanaian Education',
     subtitle: 'One School at a Time',
     description:
@@ -16,7 +15,7 @@ const slides = [
     secondaryBtn: 'Partner with Us',
   },
   {
-    img: pic2,
+    img: pic1,
     title: 'Empowering Students and Teachers',
     subtitle: 'For the Digital Future',
     description:
@@ -57,12 +56,12 @@ export default function Hero() {
           <motion.img
             src={slides[current].img}
             alt={slides[current].title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-fill"
             initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{ duration: 2 }}
           />
-          <div className="absolute inset-0 bg-black/50"></div>
+          <div className="absolute inset-0 bg-black/70"></div>
         </motion.div>
       </AnimatePresence>
 
@@ -72,8 +71,8 @@ export default function Hero() {
           key={current + '-text'}
           className="
       relative z-10 flex flex-col items-center 
-      justify-start h-full px-4 text-center max-w-3xl mx-auto
-      pt-24 md:pt-32 lg:pt-40  /* push content down from top */
+      justify-center h-full px-4 text-center max-w-3xl mx-auto
+       /* push content down from top */
     "
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,33 +90,33 @@ export default function Hero() {
           }}
         >
           <h1
-            className="
-      text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 uppercase
+            className="ubuntu
+      text-2xl md:text-[5rem] lg:text-[2.3rem] font-bold text-white mb-4 uppercase leading-tight
     "
           >
             {slides[current].title}{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-400">
-              {slides[current].subtitle}
-            </span>
+            <span className="text-[#f503f5]">{slides[current].subtitle}</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 mb-6">{slides[current].description}</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              icon={ArrowRight}
-              iconPosition="right"
-              aria-label={slides[current].primaryBtn}
-            >
-              {slides[current].primaryBtn}
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
+          <p className=" alanSas text-[1rem] md:text-xl w-[73%] mb-5 leading-tight text-white">
+            {slides[current].description}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center ">
+            <div className="group">
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                aria-label={slides[current].primaryBtn}
+                className="bg-[#f2b705] flex gap-3 px-6 py-3 alanSas rounded-lg text-black font-semibold hover:bg-[#9e7701] group-hover:text-white"
+              >
+                {slides[current].primaryBtn} <ArrowRight />
+              </motion.button>
+            </div>
+            <motion.button
+              whileTap={{ scale: 0.95 }}
               aria-label={slides[current].secondaryBtn}
-              className="border-white text-white hover:bg-white hover:text-zinc-900 dark:hover:text-white"
+              className="bg-[#f2b705] flex  items-center justify-center px-6 py-3 alanSas rounded-lg text-black font-semibold hover:bg-[#9e7701] hover:text-white"
             >
               {slides[current].secondaryBtn}
-            </Button>
+            </motion.button>
           </div>
         </motion.div>
       </AnimatePresence>

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Sun, Moon, GraduationCap } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
+import logo from '../images/mainLogo.png'
+
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,7 +26,7 @@ const Header: React.FC = () => {
       ],
     },
     { name: 'Our Impact', path: '/our-impact' },
-    { name: 'Partner with Us', path: '/partner-with-us' },
+    // { name: 'Partner with Us', path: '/partner-with-us' },
     { name: 'Blog / Insights', path: '/blog' },
     { name: 'Contact Us', path: '/contact-us' },
   ];
@@ -35,23 +37,22 @@ const Header: React.FC = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50"
+      className="bg-[#fffae6eb] shadow-sm border-b border-gray-200  sticky top-0 z-50 alanSas"
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link
-            to="/"
-            className="flex items-center space-x-2 text-xl font-bold text-primary-600 hover:text-primary-700 transition-colors"
-            aria-label="EduBoost Home"
-          >
-            <GraduationCap className="w-8 h-8" />
-            <span>EduBoost</span>
+          <Link to="/" className="flex items-center space-x-2">
+            <img
+              src={logo}
+              alt="EduBoost Logo"
+              className="h-10 w-30 md:h-12 md:w-40  md:object-contain object-center transition-transform duration-300"
+            />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navigationItems.map((item) => (
+          <div className="hidden lg:flex items-center  space-x-4 ">
+            {navigationItems.map(item => (
               <div key={item.name} className="relative">
                 {item.dropdown ? (
                   <div
@@ -60,10 +61,10 @@ const Header: React.FC = () => {
                     onMouseLeave={() => setIsDropdownOpen(false)}
                   >
                     <button
-                      className={`flex items-center space-x-1 px-3 py-2 text-sm font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
+                      className={`flex items-center space-x-1 px-3 py-2 text-base font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
                         isActive(item.path)
-                          ? 'text-primary-600 dark:text-primary-400'
-                          : 'text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400'
+                          ? 'text-[#f503f5]'
+                          : 'text-black hover:text-primary-600 dark:hover:text-primary-400'
                       }`}
                       aria-label={`${item.name} menu`}
                       aria-expanded={isDropdownOpen}
@@ -78,16 +79,16 @@ const Header: React.FC = () => {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-0 mt-1 w-64 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 py-1"
+                          className="absolute top-full left-0 mt-1 w-64 bg-[#fffae6eb]  rounded-md shadow-lg ring-1 ring-black ring-opacity-5 py-1"
                         >
-                          {item.dropdown.map((dropdownItem) => (
+                          {item.dropdown.map(dropdownItem => (
                             <Link
                               key={dropdownItem.name}
                               to={dropdownItem.path}
                               className={`block px-4 py-2 text-sm transition-colors focus:outline-none focus-visible:bg-gray-100 dark:focus-visible:bg-gray-700 ${
                                 isActive(dropdownItem.path)
-                                  ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
-                                  : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                                  ? 'text-[#f503f5] bg-primary-50 dark:bg-primary-900/20'
+                                  : 'text-black hover:text-[#f503f5]'
                               }`}
                               aria-label={`Navigate to ${dropdownItem.name}`}
                             >
@@ -101,10 +102,10 @@ const Header: React.FC = () => {
                 ) : (
                   <Link
                     to={item.path}
-                    className={`px-3 py-2 text-sm font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
+                    className={`px-3 py-2 text-base font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
                       isActive(item.path)
-                        ? 'text-primary-600 dark:text-primary-400'
-                        : 'text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400'
+                        ? 'text-[#f503f5] font-semibold'
+                        : 'text-black hover:text-[#f503f5]'
                     }`}
                     aria-label={`Navigate to ${item.name}`}
                   >
@@ -119,7 +120,7 @@ const Header: React.FC = () => {
           <div className="flex items-center space-x-4">
             <button
               onClick={toggleTheme}
-              className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+              className=" hidden md:hidden p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
               aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
             >
               {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
@@ -144,10 +145,10 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden border-t border-gray-200 dark:border-gray-700"
+              className="lg:hidden  absolute bg-white w-[70%] p-3 border-t border-gray-200 dark:border-gray-700"
             >
               <div className="px-2 pt-2 pb-3 space-y-1">
-                {navigationItems.map((item) => (
+                {navigationItems.map(item => (
                   <div key={item.name}>
                     {item.dropdown ? (
                       <div>
@@ -162,25 +163,29 @@ const Header: React.FC = () => {
                           aria-expanded={isDropdownOpen}
                         >
                           {item.name}
-                          <ChevronDown className={`w-4 h-4 transform transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
+                          <ChevronDown
+                            className={`w-4 h-4 transform transition-transform ${
+                              isDropdownOpen ? 'rotate-180' : ''
+                            }`}
+                          />
                         </button>
                         <AnimatePresence>
                           {isDropdownOpen && (
                             <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              className="ml-4 mt-1 space-y-1"
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: 10 }}
+                              transition={{ duration: 0.2 }}
+                              className="absolute left-0 top-35 mt-1 w-64 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 py-1 z-50"
                             >
-                              {item.dropdown.map((dropdownItem) => (
+                              {item.dropdown.map(dropdownItem => (
                                 <Link
                                   key={dropdownItem.name}
                                   to={dropdownItem.path}
-                                  onClick={() => setIsMenuOpen(false)}
-                                  className={`block px-3 py-2 text-sm rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
+                                  className={`block px-4 py-2 text-sm transition-colors focus:outline-none focus-visible:bg-gray-100 dark:focus-visible:bg-gray-700 ${
                                     isActive(dropdownItem.path)
                                       ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
-                                      : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                                      : 'text-black dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
                                   }`}
                                   aria-label={`Navigate to ${dropdownItem.name}`}
                                 >
@@ -197,8 +202,8 @@ const Header: React.FC = () => {
                         onClick={() => setIsMenuOpen(false)}
                         className={`block px-3 py-2 text-base font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
                           isActive(item.path)
-                            ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
-                            : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+                            ? 'text- dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
+                            : 'text-black hover:bg-gray-100 dark:hover:bg-gray-800'
                         }`}
                         aria-label={`Navigate to ${item.name}`}
                       >
