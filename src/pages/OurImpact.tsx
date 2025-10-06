@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { TrendingUp, Users, Award, Globe, ArrowRight } from 'lucide-react';
 import { Button } from '../components/Button';
 import { ScrollAnimation } from '../hooks/useScrollAnimation';
+import pic3 from '../images/heroImage1.jpeg';
 
 const OurImpact: React.FC = () => {
   return (
@@ -17,21 +18,27 @@ const OurImpact: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        className="relative py-20 lg:py-12 h-screen flex items-end"
+        style={{
+          backgroundImage: `url(${pic3})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/70 z-0"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 mb-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
-              Measuring Our{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">
-                Ghana Impact
-              </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+              Measuring Our <span className="text-[#f503f5]">Ghana Impact</span>
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-white mb-8 max-w-3xl mx-auto alanSas">
               Real results from Ghanaian schools and communities. See how EduBoost is transforming
               lives, creating opportunities, and building a more digitally literate nation.
             </p>
@@ -50,43 +57,48 @@ const OurImpact: React.FC = () => {
                   number: '25,000+',
                   label: 'Students Impacted',
                   description: 'Across all 16 regions of Ghana',
+                  bg: 'bg-[#f2b705]',
+                  text: 'text-black',
                 },
                 {
                   icon: Award,
                   number: '5,000+',
                   label: 'Teachers Trained',
                   description: 'In digital pedagogy and ICT skills',
+                  bg: 'bg-[#f0052f]',
+                  text: 'text-white',
                 },
                 {
                   icon: Globe,
                   number: '300+',
                   label: 'Schools Digitally Enabled',
                   description: 'From basic to modern ICT infrastructure',
+                  bg: 'bg-[#049dd9]',
+                  text: 'text-black',
                 },
                 {
                   icon: TrendingUp,
                   number: '78%',
                   label: 'Improvement Rate',
                   description: 'In student digital literacy scores nationwide',
+                  bg: 'bg-[#f503f5]',
+                  text: 'text-black',
                 },
               ].map((metric, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={{ scale: 0.98 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg"
+                  className={`text-center rounded-sm p-8 shadow-lg ${metric.bg} ${metric.text} alanSas`}
                 >
-                  <div className="bg-primary-100 dark:bg-primary-900 p-4 rounded-xl w-fit mx-auto mb-4">
+                  <div className="p-4 rounded-xl w-fit mx-auto mb-4">
                     <metric.icon className="w-8 h-8 text-primary-600 dark:text-primary-400" />
                   </div>
-                  <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-                    {metric.number}
-                  </div>
-                  <div className="text-lg font-semibold text-primary-600 dark:text-primary-400 mb-2">
-                    {metric.label}
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">{metric.description}</p>
+                  <div className="text-4xl font-bold  mb-2">{metric.number}</div>
+                  <div className="text-lg font-semibold  mb-2">{metric.label}</div>
+                  <p className=" text-sm">{metric.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -96,14 +108,14 @@ const OurImpact: React.FC = () => {
 
       {/* Success Stories */}
       <ScrollAnimation>
-        <section className="py-20 bg-gray-50 dark:bg-gray-800">
+        <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 ubuntu">
                 Stories of Transformation
               </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300">
-                Real stories from the Ghanaian communities we've empowered through digital
+              <p className=" text-[1rem] md:text-xl text-black alanSas">
+                Real stories from the Ghanaian communities we've <br /> empowered through digital
                 education.
               </p>
             </div>
@@ -122,6 +134,8 @@ const OurImpact: React.FC = () => {
                     '55% improvement in ICT test scores',
                     'Now mentoring 3 neighboring schools',
                   ],
+                  bg: 'bg-[#f2b705]',
+                  text: 'text-black',
                 },
                 {
                   title: 'Teachers Embrace Digital Teaching',
@@ -135,6 +149,8 @@ const OurImpact: React.FC = () => {
                     '85% report improved student engagement',
                     '25% increase in parent satisfaction',
                   ],
+                  bg: 'bg-[#f0052f]',
+                  text: 'text-white',
                 },
               ].map((story, index) => (
                 <motion.div
@@ -142,7 +158,7 @@ const OurImpact: React.FC = () => {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden"
+                  className={`rounded-sm shadow-lg overflow-hidden ${story.bg} ${story.text} alanSas `}
                 >
                   <img
                     src={story.image}
@@ -152,24 +168,13 @@ const OurImpact: React.FC = () => {
                     height="256"
                   />
                   <div className="p-8">
-                    <div className="text-sm text-primary-600 dark:text-primary-400 font-medium mb-2">
-                      {story.location}
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                      {story.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                      {story.story}
-                    </p>
+                    <div className="text-sm  font-medium mb-2">{story.location}</div>
+                    <h3 className="text-2xl font-bold  mb-4">{story.title}</h3>
+                    <p className=" mb-6 leading-relaxed">{story.story}</p>
                     <div className="space-y-2">
-                      <div className="font-semibold text-gray-900 dark:text-white mb-2">
-                        Key Impact:
-                      </div>
+                      <div className="font-semibold  mb-2">Key Impact:</div>
                       {story.impact.map((item, impactIndex) => (
-                        <div
-                          key={impactIndex}
-                          className="flex items-center text-sm text-gray-600 dark:text-gray-300"
-                        >
+                        <div key={impactIndex} className="flex items-center text-sm">
                           <div className="w-2 h-2 bg-secondary-500 rounded-full mr-3"></div>
                           {item}
                         </div>
@@ -188,11 +193,12 @@ const OurImpact: React.FC = () => {
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
                 Recognition & Awards
               </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300">
-                Our work has been recognized by leading organizations across Ghana and beyond.
+              <p className="text-[1rem] md:text-xl text-black alanSas">
+                Our work has been recognized by leading <br /> organizations across Ghana and
+                beyond.
               </p>
             </div>
 
@@ -202,37 +208,38 @@ const OurImpact: React.FC = () => {
                   award: 'GES ICT Innovation Award',
                   year: '2024',
                   description: 'Recognized for outstanding contribution to ICT in public schools',
+                  bg: 'bg-[#f2b705]',
+                  text: 'text-black',
                 },
                 {
                   award: 'MTN Ghana Foundation Digital Literacy Prize',
                   year: '2023',
                   description: 'Honored for innovative teacher training approach',
+                  bg: 'bg-[#f0052f]',
+                  text: 'text-white',
                 },
                 {
                   award: 'UN SDG Partnership Award – Ghana Chapter',
                   year: '2023',
                   description: 'Acknowledged for advancing SDG 4 - Quality Education',
+                  bg: 'bg-[#049dd9]',
+                  text: 'text-black',
                 },
               ].map((recognition, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 0.98 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg"
+                  className={`text-center  rounded-sm p-6 shadow-lg ${recognition.bg} ${recognition.text} alanSas`}
                 >
                   <div className="bg-yellow-100 dark:bg-yellow-900/20 p-3 rounded-xl w-fit mx-auto mb-4">
                     <Award className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    {recognition.award}
-                  </h3>
-                  <div className="text-primary-600 dark:text-primary-400 font-medium mb-3">
-                    {recognition.year}
-                  </div>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">
-                    {recognition.description}
-                  </p>
+                  <h3 className="text-lg font-semibold  mb-2">{recognition.award}</h3>
+                  <div className="text-primary-600  font-medium mb-3">{recognition.year}</div>
+                  <p className=" text-sm">{recognition.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -242,15 +249,13 @@ const OurImpact: React.FC = () => {
 
       {/* Geographic Impact */}
       <ScrollAnimation>
-        <section className="py-20 bg-gray-50 dark:bg-gray-800">
+        <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                National Reach
-              </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300">
-                EduBoost programs are active across Ghana’s regions, adapting to local needs while
-                maintaining national standards.
+              <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">National Reach</h2>
+              <p className="text-xl text-black alanSas">
+                EduBoost programs are active across Ghana’s regions, adapting <br /> to local needs
+                while maintaining national standards.
               </p>
             </div>
 
@@ -261,54 +266,55 @@ const OurImpact: React.FC = () => {
                   countries: '5 Regions',
                   schools: '80+ Schools',
                   students: '6,000+ Students',
+                  bg: 'bg-[#f2b705]',
+                  text: 'text-black',
                 },
                 {
                   region: 'Middle Belt',
                   countries: '6 Regions',
                   schools: '120+ Schools',
                   students: '9,000+ Students',
+                  bg: 'bg-[#f0052f]',
+                  text: 'text-white',
                 },
                 {
                   region: 'Coastal Areas',
                   countries: '4 Regions',
                   schools: '70+ Schools',
                   students: '5,000+ Students',
+                  bg: 'bg-[#049dd9]',
+                  text: 'text-black',
                 },
                 {
                   region: 'Greater Accra & Eastern',
                   countries: '2 Regions',
                   schools: '30+ Schools',
                   students: '3,000+ Students',
+                  bg: 'bg-[#f503f5]',
+                  text: 'text-black',
                 },
               ].map((region, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ scale: 0.98 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md"
+                  className={`rounded-sm p-6 shadow-md ${region.bg} ${region.text} alanSas`}
                 >
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-                    {region.region}
-                  </h3>
+                  <h3 className="text-lg font-semibold mb-4">{region.region}</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between">
-                      <span className="text-gray-600 dark:text-gray-400">Regions:</span>
-                      <span className="text-gray-900 dark:text-white font-medium">
-                        {region.countries}
-                      </span>
+                      <span>Regions:</span>
+                      <span className="font-medium">{region.countries}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600 dark:text-gray-400">Schools:</span>
-                      <span className="text-gray-900 dark:text-white font-medium">
-                        {region.schools}
-                      </span>
+                      <span>Schools:</span>
+                      <span className=" font-medium">{region.schools}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600 dark:text-gray-400">Students:</span>
-                      <span className="text-gray-900 dark:text-white font-medium">
-                        {region.students}
-                      </span>
+                      <span className="">Students:</span>
+                      <span className=" font-medium">{region.students}</span>
                     </div>
                   </div>
                 </motion.div>
@@ -320,25 +326,31 @@ const OurImpact: React.FC = () => {
 
       {/* CTA Section */}
       <ScrollAnimation>
-        <section className="py-20 bg-gradient-to-r from-blue-800 to-indigo-900  text-white">
+        <section className="py-20 ">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Be Part of Our Growing Impact</h2>
-            <p className="text-xl mb-8 opacity-90">
-              Join our mission to transform education and create opportunities for learners across
-              Ghana.
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 ubuntu ">
+              Be Part of Our Growing Impact
+            </h2>
+            <p className="text-xl mb-8 text-black alanSas">
+              Join our mission to transform education and create <br /> opportunities for learners
+              across Ghana.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" icon={ArrowRight} iconPosition="right" aria-label="Partner with us">
+              <motion.button
+                whileTap={{ scale: 0.98 }}
+                aria-label="Partner with us"
+                className="bg-[#f503f5] flex gap-3 px-6 py-4 alanSas rounded-lg text-black font-semibold hover:bg-[#9e7701] hover:text-white"
+              >
                 Partner with Us
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white text-white hover:bg-white hover:text-zinc-900 dark:hover:text-white"
+                <ArrowRight />
+              </motion.button>
+              <motion.button
+                whileTap={{ scale: 0.98 }}
+                className="bg-[#f2b705] flex gap-3 px-6 py-4 alanSas rounded-lg text-black font-semibold hover:bg-[#f503f5] hover:text-black"
                 aria-label="View impact report"
               >
                 Download Impact Report
-              </Button>
+              </motion.button>
             </div>
           </div>
         </section>

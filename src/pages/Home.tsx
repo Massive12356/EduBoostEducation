@@ -75,7 +75,7 @@ const Home: React.FC = () => {
                   whileHover={{ scale: 0.95 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`text-center p-6 ${item.bg} rounded-xl shadow-md `}
+                  className={`text-center p-6 ${item.bg} rounded-sm shadow-md `}
                 >
                   <img src={item.icon} alt="" className="w-40 h-40 mx-auto mb-4 object-contain" />
                   <div className={`text-4xl alanSas font-bold ${item.text}`}>{item.stat}</div>
@@ -238,7 +238,7 @@ const Home: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="bg-[#f2b705] rounded-2xl p-8 shadow-lg"
+                className="bg-[#f2b705] rounded-sm p-8 shadow-lg"
               >
                 <div className="flex items-center justify-center mb-6">
                   {[...Array(5)].map((_, i) => (
@@ -261,7 +261,7 @@ const Home: React.FC = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="bg-[#f0052f] rounded-2xl p-8 shadow-lg"
+                className="bg-[#f0052f] rounded-sm p-8 shadow-lg"
               >
                 <div className="flex items-center justify-center mb-6">
                   {[...Array(5)].map((_, i) => (
