@@ -11,6 +11,24 @@ import picInClass from '../../images/StockCake-Teaching Code Class_1758532379.jp
 import picLabTime from '../../images/StockCake-Digital Learning Hub_1758532290.jpg';
 import pic from '../../images/heroImage.jpeg';
 import { Link } from 'react-router-dom';
+import analysis from '../../images/analysis.jpeg'
+import analysis1 from '../../images/analysis2.jpeg'
+import projectBased from '../../images/projectBased.jpeg'
+import support from '../../images/support.jpeg'
+import support1 from '../../images/support1.jpeg'
+
+
+const analysisImages = [
+  {
+    src: analysis,
+    alt: 'Student digital skills analysis overview',
+  },
+  {
+    src: analysis1,
+    alt: 'Advanced digital learning analytics',
+  },
+];
+
 
 const StudentDigitalSkills: React.FC = () => {
   return (
@@ -72,22 +90,22 @@ const StudentDigitalSkills: React.FC = () => {
 
             {/* Images instead of stats */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[{ bg: 'bg-[#f2b705]' }, { bg: 'bg-[#f0052f]' }].map((imgSrc, index) => (
+              {analysisImages.map((image, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ scale: 0.98 }}
-                  className={`overflow-hidden rounded-sm shadow-lg w-full h-[300px]  ${imgSrc.bg}`}
+                  className="overflow-hidden rounded-sm shadow-lg w-full h-[300px]"
                 >
-                  {/* <motion.img
-                    src={imgSrc}
-                    alt={`Digital skills illustration ${index + 1}`}
-                    className="w-full h-auto object-cover"
+                  <motion.img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-cover"
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
-                  /> */}
+                  />
                 </motion.div>
               ))}
             </div>
@@ -287,10 +305,11 @@ const StudentDigitalSkills: React.FC = () => {
               </div>
 
               <div className="relative">
-                <img
-                  src={pic3}
+                <motion.img
+                  whileHover={{ scale: 0.99 }}
+                  src={projectBased}
                   alt="Students collaborating on a coding project using laptops"
-                  className="rounded-2xl shadow-xl w-full h-96 object-cover"
+                  className="rounded-sm shadow-sm w-full h-[500px] object-cover"
                 />
               </div>
             </div>
@@ -315,13 +334,14 @@ const StudentDigitalSkills: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 0.99 }}
                 transition={{ duration: 0.6 }}
-                className="bg-white rounded-2xl p-6 shadow-lg"
+                className="bg-[#f2b705] rounded-sm p-6 shadow-lg"
               >
                 <img
-                  src={picInClass}
+                  src={support}
                   alt="In-class support"
-                  className="rounded-xl mb-4 w-full h-64 object-cover"
+                  className="rounded-sm mb-4 w-full h-64 object-cover"
                 />
                 <h3 className="text-xl font-semibold text-black mb-2 alanSas">In-Class Support</h3>
                 <p className="text-black alanSas">
@@ -335,18 +355,19 @@ const StudentDigitalSkills: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 0.99 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-lg alanSas"
+                className="bg-[#f0052f] rounded-sm p-6 shadow-lg alanSas text-white"
               >
                 <img
-                  src={picLabTime}
+                  src={support1}
                   alt="Supervised lab time"
-                  className="rounded-xl mb-4 w-full h-64 object-cover"
+                  className="rounded-sm mb-4 w-full h-64 object-cover"
                 />
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-xl font-semibold  mb-2">
                   Supervised Lab Time
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="">
                   The learning doesn't stop when the bell rings. Our ICT <br /> centers remain open
                   after class for students to explore, <br /> create and build new projects with
                   expert support.
@@ -368,11 +389,11 @@ const StudentDigitalSkills: React.FC = () => {
               Prepare your students for the digital future with our comprehensive <br /> skills
               training programs.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col m sm:flex-row gap-4 justify-center">
               <Link to="/contact-us">
                 <motion.button
-                  whileTap={{scale:0.98}}
-                  className="bg-[#f503f5] flex gap-3 px-6 py-4 alanSas rounded-lg text-black font-semibold hover:bg-[#9e7701] hover:text-white"
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-[#f503f5] w-full flex flex-row justify-center gap-3 px-6 py-4 alanSas rounded-lg text-black font-semibold hover:bg-[#9e7701] hover:text-white"
                   aria-label="Enroll students"
                 >
                   Partner With Our School
@@ -382,7 +403,7 @@ const StudentDigitalSkills: React.FC = () => {
 
               <Link to="/ecosystem/teacher-capacity">
                 <motion.button
-                whileTap={{scale:0.98}}
+                  whileTap={{ scale: 0.98 }}
                   className="bg-[#f2b705] flex gap-3 px-6 py-4 alanSas rounded-lg text-black font-semibold hover:bg-[#f503f5] hover:text-black"
                   aria-label="View curriculum details"
                 >

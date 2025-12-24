@@ -5,6 +5,9 @@ import { Monitor, Wifi, HardDrive, Headphones, Users, BookOpen, Circle } from 'l
 import { ScrollAnimation } from '../../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 import pic3 from '../../images/heroImage.jpeg';
+import modern1 from '../../images/modernLad1.jpeg'
+import modern3 from '../../images/modernlab3.jpeg'
+import modern4 from '../../images/modernlab4.jpeg'
 
 const ICTTrainingFacilities: React.FC = () => {
   return (
@@ -36,13 +39,7 @@ const ICTTrainingFacilities: React.FC = () => {
             className="text-center"
           >
             <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold text-white leading-tight mb-6 ubuntu ">
-              Modern ICT{' '}
-              <span
-                className="text-[#f503f5] inline-block"
-
-              >
-                Training Facilities
-              </span>
+              Modern ICT <span className="text-[#f503f5] inline-block">Training Facilities</span>
             </h1>
             <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
               State-of-the-art technology centers designed to provide <br /> hands-on learning
@@ -68,14 +65,20 @@ const ICTTrainingFacilities: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto p-2 md:p-0">
             {/* First image + text below */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileHover={{ scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex flex-col items-center bg-[#f2b705] h-[300px] rounded-sm"
+              className="flex flex-col items-center h-[300px] rounded-sm"
+              style={{
+                backgroundImage: `url(${modern1})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
             >
               <p className="mt-4 text-lg font-semibold text-black text-center">
                 Modern Classrooms with Green IT Setup
@@ -88,7 +91,13 @@ const ICTTrainingFacilities: React.FC = () => {
               whileHover={{ scale: 0.98 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex flex-col items-center bg-[#f0052f] rounded-sm"
+              className="flex flex-col items-center rounded-sm h-[300px]"
+              style={{
+                backgroundImage: `url(${modern3})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
             >
               <p className="mt-4 text-lg font-semibold text-black text-center">
                 State-of-the-Art ICT Workstations
@@ -229,10 +238,10 @@ const ICTTrainingFacilities: React.FC = () => {
 
               <div className="relative">
                 <img
-                  src="https://images.pexels.com/photos/5428836/pexels-photo-5428836.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src={modern4}
                   alt="Students working in a modern computer lab with state-of-the-art equipment"
-                  className="rounded-2xl shadow-xl w-full h-auto"
-                  width="600"
+                  className="rounded-sm shadow-xl w-full h-auto"
+                  width="500"
                   height="400"
                 />
               </div>
@@ -313,7 +322,7 @@ const ICTTrainingFacilities: React.FC = () => {
               Let's create a modern learning environment that prepares your <br /> students for the
               digital future.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col items-center sm:flex-row gap-4 justify-center">
               <Link to="/contact-us">
                 <motion.button
                   whileTap={{ scale: 0.98 }}

@@ -5,6 +5,7 @@ import { TrendingUp, Users, Award, Globe, ArrowRight } from 'lucide-react';
 import { Button } from '../components/Button';
 import { ScrollAnimation } from '../hooks/useScrollAnimation';
 import pic3 from '../images/heroImage1.jpeg';
+import bono from '../images/bono.jpg'
 
 const OurImpact: React.FC = () => {
   return (
@@ -127,8 +128,7 @@ const OurImpact: React.FC = () => {
                   location: 'Bongo District, Upper East Region',
                   story:
                     'Bongo Primary School transformed from having no computers to becoming a regional ICT learning hub. Student enrollment increased by 40% and BECE ICT scores improved by 55%.',
-                  image:
-                    'https://images.pexels.com/photos/8190804/pexels-photo-8190804.jpeg?auto=compress&cs=tinysrgb&w=800',
+                  image: bono,
                   impact: [
                     '40% increase in enrollment',
                     '55% improvement in ICT test scores',
@@ -156,6 +156,7 @@ const OurImpact: React.FC = () => {
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
+                  whileHover={{scale:0.99}}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   className={`rounded-sm shadow-lg overflow-hidden ${story.bg} ${story.text} alanSas `}

@@ -5,6 +5,7 @@ import { Settings, BarChart3, Users, Calendar, FileText, MessageCircle, ArrowRig
 import { Button } from '../../components/Button';
 import { ScrollAnimation } from '../../hooks/useScrollAnimation';
 import pic from '../../images/heroImage1.jpeg';
+import analysis from '../../images/analysis.jpeg'
 
 const SchoolManagementSystem: React.FC = () => {
   return (
@@ -236,10 +237,11 @@ const SchoolManagementSystem: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative">
-                <img
-                  src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800"
+                <motion.img
+                whileHover={{scale:0.99}}
+                  src={analysis}
                   alt="Analytics dashboard showing school performance metrics and data visualizations"
-                  className="rounded-2xl shadow-xl w-full h-auto"
+                  className="rounded-sm shadow-sm w-full h-auto"
                   width="600"
                   height="400"
                 />
@@ -367,13 +369,13 @@ const SchoolManagementSystem: React.FC = () => {
               <motion.button
                 whileTap={{ scale: 0.98 }}
                 aria-label="Request demo"
-                className="bg-[#f503f5] flex gap-3 px-6 py-4 alanSas rounded-lg text-black font-semibold hover:bg-[#9e7701] hover:text-white"
+                className="bg-[#f503f5] flex gap-3 flex-row justify-center px-6 py-4 alanSas rounded-lg text-black font-semibold hover:bg-[#9e7701] hover:text-white"
               >
                 Request Demo
               </motion.button>
               <motion.button
                 whileTap={{ scale: 0.98 }}
-                className="bg-[#f2b705] flex gap-3 px-6 py-4 alanSas rounded-lg text-black font-semibold hover:bg-[#f503f5] hover:text-black"
+                className="bg-[#f2b705] flex  flex-row justify-center gap-3 px-6 py-4 alanSas rounded-lg text-black font-semibold hover:bg-[#f503f5] hover:text-black"
                 aria-label="View pricing plans"
               >
                 View Pricing

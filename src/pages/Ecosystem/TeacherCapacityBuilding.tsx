@@ -321,7 +321,7 @@ const TeacherCapacityBuilding: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
                 whileTap={{ scale: 0.98 }}
-                className="bg-[#f503f5] flex gap-3 px-6 py-4 alanSas rounded-lg text-black font-semibold hover:bg-[#9e7701] hover:text-white"
+                className="bg-[#f503f5] flex flex-row justify-center gap-3 px-6 py-4 alanSas rounded-lg text-black text-center font-semibold hover:bg-[#9e7701] hover:text-white"
                 aria-label="Enroll teachers now"
               >
                 Enroll Teachers Now
@@ -329,7 +329,7 @@ const TeacherCapacityBuilding: React.FC = () => {
               <motion.button
                 aria-label="View course catalog"
                 whileTap={{ scale: 0.98 }}
-                className="bg-[#f2b705] flex gap-3 px-6 py-4 alanSas rounded-lg text-black font-semibold hover:bg-[#f503f5] hover:text-black"
+                className="bg-[#f2b705] flex flex-row gap-3 px-6 py-4 alanSas rounded-lg text-black justify-center font-semibold hover:bg-[#f503f5] hover:text-black"
               >
                 View Course Catalog
               </motion.button>

@@ -27,7 +27,7 @@ const Header: React.FC = () => {
     },
     { name: 'Our Impact', path: '/our-impact' },
     // { name: 'Partner with Us', path: '/partner-with-us' },
-    { name: 'Blog / Insights', path: '/blog' },
+    // { name: 'Blog / Insights', path: '/blog' },
     { name: 'Contact Us', path: '/contact-us' },
   ];
 
