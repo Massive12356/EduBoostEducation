@@ -199,7 +199,7 @@ const OurSolution: React.FC = () => {
 
       {/* Solutions Grid */}
       <ScrollAnimation>
-        <section className="py-20 bg-gray-50 dark:bg-gray-800">
+        <section className="py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900  mb-4">
@@ -223,7 +223,7 @@ const OurSolution: React.FC = () => {
                   <BadgeCheck className={`absolute top-4 right-4 w-6 h-6 ${solution.textColor}`} />
 
                   <div className="flex items-center mb-6">
-                    <div className="bg-primary-100 dark:bg-primary-900 p-3 rounded-xl mr-4">
+                    <div className="bg-primary-100  p-3 rounded-xl mr-4">
                       <solution.icon className={`w-8 h-8 ${solution.textColor}`} />
                     </div>
                     <h3 className={`text-2xl font-bold ${solution.textColor}`}>{solution.title}</h3>
@@ -257,7 +257,7 @@ const OurSolution: React.FC = () => {
                     className={`inline-flex items-center justify-center font-medium rounded-lg 
     transition-all duration-200 focus:outline-none focus-visible:ring-2 
     focus-visible:ring-primary-500 focus-visible:ring-offset-2 
-    dark:focus-visible:ring-offset-gray-800 
+    
      ${solution.textColor} hover:scale-105
     px-3 py-2 text-sm gap-2 ${solution.buttonColor}`}
                   >
@@ -294,7 +294,7 @@ const OurSolution: React.FC = () => {
                     'Data-driven insights improve outcomes across all areas',
                   ].map((benefit, index) => (
                     <div key={index} className="flex items-start">
-                      <div className="bg-secondary-100 dark:bg-secondary-900 p-1 rounded-full mr-3 mt-1">
+                      <div className="bg-secondary-100  p-1 rounded-full mr-3 mt-1">
                         {/* glowing dot */}
                         <div className="w-2 h-2 bg-secondary-600 rounded-full shadow-[0_0_8px_theme(colors.secondary.600)] animate-pulse"></div>
                       </div>
