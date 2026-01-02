@@ -97,7 +97,7 @@ const ContactUs: React.FC = () => {
                       className="flex items-start space-x-4 alanSas"
                     >
                       <div className="bg-primary-100  p-3 rounded-xl">
-                        <contact.icon className="w-6 h-6 text-primary-600 dark:text-primary-400" />
+                        <contact.icon className="w-6 h-6 text-primary-600" />
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold text-gray-900 mb-2">
