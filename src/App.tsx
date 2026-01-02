@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { ThemeProvider } from './contexts/ThemeContext';
+
 import Layout from './components/Layout';
 import ChatbotWidget from './components/ChatbotWidget';
 import ScrollToTop from './components/ScrollToTop';
@@ -22,7 +22,6 @@ const ContactUs = React.lazy(() => import('./pages/ContactUs'));
 function App() {
   return (
     <HelmetProvider>
-      <ThemeProvider>
         <Router>
           <ScrollToTop/>
           <Layout>
@@ -51,7 +50,6 @@ function App() {
         </Router>
 
         <ChatbotWidget/>
-      </ThemeProvider>
     </HelmetProvider>
   );
 }

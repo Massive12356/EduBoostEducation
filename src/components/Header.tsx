@@ -1,8 +1,8 @@
 import  { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, Sun, Moon, GraduationCap } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
+import { Menu, X, ChevronDown, GraduationCap } from 'lucide-react';
+
 import logo from '../images/mainLogo.png'
 
 
@@ -10,7 +10,7 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
-  const { theme, toggleTheme } = useTheme();
+
 
   const navigationItems = [
     { name: 'Home', path: '/' },
@@ -64,7 +64,7 @@ const Header: React.FC = () => {
                       className={`flex items-center space-x-1 px-3 py-2 text-base font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
                         isActive(item.path)
                           ? 'text-[#f503f5]'
-                          : 'text-black hover:text-primary-600 dark:hover:text-primary-400'
+                          : 'text-black hover:text-primary-600'
                       }`}
                       aria-label={`${item.name} menu`}
                       aria-expanded={isDropdownOpen}
@@ -85,9 +85,9 @@ const Header: React.FC = () => {
                             <Link
                               key={dropdownItem.name}
                               to={dropdownItem.path}
-                              className={`block px-4 py-2 text-sm transition-colors focus:outline-none focus-visible:bg-gray-100 dark:focus-visible:bg-gray-700 ${
+                              className={`block px-4 py-2 text-sm transition-colors focus:outline-none focus-visible:bg-gray-100 ${
                                 isActive(dropdownItem.path)
-                                  ? 'text-[#f503f5] bg-primary-50 dark:bg-primary-900/20'
+                                  ? 'text-[#f503f5] bg-primary-50'
                                   : 'text-black hover:text-[#f503f5]'
                               }`}
                               aria-label={`Navigate to ${dropdownItem.name}`}
@@ -118,17 +118,11 @@ const Header: React.FC = () => {
 
           {/* Theme Toggle & Mobile Menu Button */}
           <div className="flex items-center space-x-4">
-            <button
-              onClick={toggleTheme}
-              className=" hidden md:hidden p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
-              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-            >
-              {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-            </button>
+            
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
+              className="lg:hidden p-2 text-gray-500 hover:text-gray-700 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500"
               aria-label={`${isMenuOpen ? 'Close' : 'Open'} main menu`}
               aria-expanded={isMenuOpen}
             >
@@ -145,7 +139,7 @@ const Header: React.FC = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden  absolute bg-white w-[70%] p-3 border-t border-gray-200 dark:border-gray-700"
+              className="lg:hidden  absolute bg-white w-[70%] p-3 border-t border-gray-200"
             >
               <div className="px-2 pt-2 pb-3 space-y-1">
                 {navigationItems.map(item => (
@@ -156,8 +150,8 @@ const Header: React.FC = () => {
                           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                           className={`flex justify-between items-center w-full px-3 py-2 text-base font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
                             isActive(item.path)
-                              ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
-                              : 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800'
+                              ? 'text-primary-600 bg-primary-50'
+                              : 'text-gray-700 hover:bg-gray-100'
                           }`}
                           aria-label={`${item.name} menu`}
                           aria-expanded={isDropdownOpen}
@@ -176,16 +170,16 @@ const Header: React.FC = () => {
                               animate={{ opacity: 1, y: 0 }}
                               exit={{ opacity: 0, y: 10 }}
                               transition={{ duration: 0.2 }}
-                              className="absolute left-0 top-35 mt-1 w-64 bg-white dark:bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 py-1 z-50"
+                              className="absolute left-0 top-35 mt-1 w-64 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 py-1 z-50"
                             >
                               {item.dropdown.map(dropdownItem => (
                                 <Link
                                   key={dropdownItem.name}
                                   to={dropdownItem.path}
-                                  className={`block px-4 py-2 text-sm transition-colors focus:outline-none focus-visible:bg-gray-100 dark:focus-visible:bg-gray-700 ${
+                                  className={`block px-4 py-2 text-sm transition-colors focus:outline-none focus-visible:bg-gray-100 ${
                                     isActive(dropdownItem.path)
-                                      ? 'text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
-                                      : 'text-black dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700'
+                                      ? 'text-primary-600 bg-primary-50'
+                                      : 'text-black hover:bg-gray-100'
                                   }`}
                                   aria-label={`Navigate to ${dropdownItem.name}`}
                                 >
@@ -202,8 +196,8 @@ const Header: React.FC = () => {
                         onClick={() => setIsMenuOpen(false)}
                         className={`block px-3 py-2 text-base font-medium rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 ${
                           isActive(item.path)
-                            ? 'text- dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20'
-                            : 'text-black hover:bg-gray-100 dark:hover:bg-gray-800'
+                            ? 'text- bg-primary-50'
+                            : 'text-black hover:bg-gray-100'
                         }`}
                         aria-label={`Navigate to ${item.name}`}
                       >

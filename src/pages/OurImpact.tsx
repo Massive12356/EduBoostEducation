@@ -2,7 +2,6 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { TrendingUp, Users, Award, Globe, ArrowRight } from 'lucide-react';
-import { Button } from '../components/Button';
 import { ScrollAnimation } from '../hooks/useScrollAnimation';
 import pic3 from '../images/heroImage1.jpeg';
 import bono from '../images/bono.jpg'

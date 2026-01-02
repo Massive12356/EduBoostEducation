@@ -8,6 +8,8 @@
 
     /* ✅ FIX HERE */
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
 
     "allowImportingTsExtensions": true,
     "isolatedModules": true,

@@ -10,7 +10,6 @@ import {
   CheckCircle,
   BadgeCheck,
 } from 'lucide-react';
-import { Button } from '../components/Button';
 import { ScrollAnimation } from '../hooks/useScrollAnimation';
 import { Link } from 'react-router-dom';
 import pic from '../images/bb.jpg'
